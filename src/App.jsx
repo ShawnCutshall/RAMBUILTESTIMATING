@@ -1,5 +1,7 @@
 import React from "react";
 
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mdkprvnw"
+
 function Stat({ label, value }) {
   return (
     <div className="stat">
@@ -277,21 +279,37 @@ export default function App() {
       <section id="contact" className="contact">
         <div className="wrap">
           <h2 className="section-title light">Request an Estimate</h2>
-        <p className="muted light">
+          <p className="muted light">
             Send your plans and project details. We’ll confirm scope, timeline, and deliverables.
           </p>
 
           <div className="contact-grid">
+            {/* ✅ Formspree-integrated form; no JS alert, no onSubmit handler */}
             <form
               className="form"
               name="resllc-contact"
-              onSubmit={(e) => { e.preventDefault(); alert("Thanks! We’ll follow up by email."); }}
+              action={FORMSPREE_ENDPOINT}
+              method="POST"
+              acceptCharset="UTF-8"
             >
-              <input className="input" placeholder="Your Name" required />
-              <input className="input" type="email" placeholder="Email" required />
-              <input className="input" placeholder="Company (optional)" />
-              <textarea className="input" rows="5" placeholder="Project details (location, scope, timeline)"></textarea>
+              {/* standard fields */}
+              <input className="input" name="name" placeholder="Your Name" required />
+              <input className="input" type="email" name="email" placeholder="Email" required />
+              <input className="input" name="company" placeholder="Company (optional)" />
+              <textarea
+                className="input"
+                name="message"
+                rows="5"
+                placeholder="Project details (location, scope, timeline)"
+                required
+              ></textarea>
+
+              {/* optional: good email subject + spam honeypot */}
+              <input type="hidden" name="_subject" value="New Estimate Request — RES LLC" />
+              <input type="text" name="_gotcha" style={{ display: "none" }} tabIndex="-1" autoComplete="off" />
+
               <button className="btn btn-primary" type="submit">Submit</button>
+
               <p className="tiny">
                 Submitting this form does not share files. After submission, we’ll email you a secure link to upload drawings.
               </p>
@@ -330,3 +348,4 @@ export default function App() {
     </>
   );
 }
+
