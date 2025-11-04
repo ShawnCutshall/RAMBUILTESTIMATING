@@ -1,0 +1,77 @@
+:root{
+  --bg:#ffffff;--ink:#0f172a;--muted:#475569;--line:#e2e8f0;
+  --accent:#ea580c;--accent-ink:#fff;--soft:#f8fafc;
+}
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Inter,"Helvetica Neue",Arial;color:var(--ink);background:var(--bg);line-height:1.5}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+.section{padding:72px 0}.section.alt{background:var(--soft)}
+.section-title{font-size:32px;margin:0 0 8px}
+.muted{color:var(--muted)}.lead{font-size:18px;color:var(--muted);max-width:68ch}
+.accent{color:var(--accent)}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:10px 16px;text-decoration:none;color:var(--ink);background:#fff}
+.btn:hover{border-color:#cbd5e1}.btn-outline{background:#fff}
+.btn-primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn-primary:hover{filter:brightness(.95)}.tiny{font-size:12px;color:var(--muted)}.light{color:#e2e8f0}
+
+/* Header */
+.site-header{position:sticky;top:0;z-index:50;backdrop-filter:saturate(180%) blur(6px);background:rgba(255,255,255,.85);border-bottom:1px solid var(--line)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 0}
+.logo{height:56px;width:auto;display:block} /* bigger logo */
+.nav{display:flex;gap:18px;align-items:center}
+.nav a{text-decoration:none;color:var(--ink);font-size:14px}.nav .btn{margin-left:8px}
+.nav-toggle{display:none}
+@media (max-width:960px){.nav{display:none}.nav-toggle{display:block;background:none;border:0;font-size:22px}}
+
+/* Hero */
+.hero{padding:56px 0}
+.hero-title{font-size:42px;line-height:1.1;margin:0 0 12px;max-width:18ch}
+.hero-actions{display:flex;gap:12px;margin:18px 0 22px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
+.stat{border:1px solid var(--line);border-radius:12px;padding:14px;background:#fff}
+.stat-label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.stat-value{font-weight:600;font-size:18px;margin-top:6px}
+.note{font-size:12px;color:var(--muted);margin-top:8px}
+@media (max-width:800px){.stats{grid-template-columns:repeat(2,1fr)}.hero-title{font-size:34px}}
+
+/* Cards / lists */
+.cards{display:grid;gap:16px;margin-top:16px}.cards.three{grid-template-columns:repeat(3,1fr)}
+.cards:not(.three){grid-template-columns:repeat(3,1fr)}
+.card{border:1px solid var(--line);border-radius:16px;background:#fff;padding:18px}
+.card h3{margin:0 0 8px}
+@media (max-width:960px){.cards,.cards.three{grid-template-columns:1fr}}
+.checks{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+.check{display:flex;gap:8px;align-items:flex-start}.check-icon{color:var(--accent);font-weight:700;margin-top:1px}
+
+/* Pills */
+.pill-grid{display:grid;gap:14px;grid-template-columns:repeat(3,1fr)}
+.pill{border:1px dashed var(--line);border-radius:14px;padding:14px;background:#fff}
+.pill h4{margin:0 0 6px}
+@media (max-width:960px){.pill-grid{grid-template-columns:1fr}}
+
+/* Steps */
+.steps{list-style:decimal;margin:0;padding-left:1.25rem;display:grid;gap:10px}
+.steps li h4{margin:0 0 6px}
+
+/* Split */
+.split{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:12px}
+@media (max-width:960px){.split{grid-template-columns:1fr}}
+
+/* Contact */
+.contact{background:#0f172a;color:#fff;padding:72px 0}
+.contact-grid{display:grid;grid-template-columns:2fr 1fr;gap:18px;margin-top:16px}
+.form{display:grid;gap:10px}
+.input{border:1px solid #2b3446;background:#0b1220;color:#fff;border-radius:10px;padding:10px 12px;font:inherit}
+.input::placeholder{color:#94a3b8}
+.contact-info{display:grid;gap:10px}
+.info-row{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:center}
+.info-label{color:#94a3b8;font-size:13px;text-transform:uppercase;letter-spacing:.06em}
+.info-value{color:#fff;text-decoration:none}
+@media (max-width:960px){.contact-grid{grid-template-columns:1fr}}
+
+/* Footer */
+.footer{border-top:1px solid var(--line);background:#fff}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.footer-links{display:flex;gap:16px}
+.footer a{text-decoration:none;color:var(--ink)}
